@@ -1,1 +1,94 @@
-<h1>Hola, te amo Cris</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Te Amo Cris</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('planeta.jpeg');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin: 5px 0;
+    }
+
+    .timer {
+      font-size: 2em;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 20px;
+      margin-top: 20px;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 1em;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 5px 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hola, te amo Cris 💖</h1>
+  <p>Eres lo mejor que me ha pasado 💫</p>
+  <p>Gracias por estar conmigo cada día 🌹</p>
+
+  <div class="timer" id="contador">
+    Cargando tiempo juntos...
+  </div>
+
+  <footer>
+    Para siempre juntos 🫶
+  </footer>
+
+  <script>
+    // Cambia esta fecha a la que comenzaron su relación
+    const inicio = new Date("2024-06-20T12:00:00"); // YYYY-MM-DDTHH:MM:SS
+
+    function actualizarContador() {
+      const ahora = new Date();
+      const diferencia = ahora - inicio;
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+      const segundos = Math.floor((diferencia / 1000) % 60);
+
+      document.getElementById("contador").innerHTML = `
+        Hemos estado juntos por:<br>
+        <span>${dias}</span> días,
+        <span>${horas}</span> horas,
+        <span>${minutos}</span> minutos y
+        <span>${segundos}</span> segundos 💞
+      `;
+    }
+
+    setInterval(actualizarContador, 1000);
+    actualizarContador();
+  </script>
+
+</body>
+</html>
