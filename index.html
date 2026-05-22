@@ -2,92 +2,189 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Te Amo Cris</title>
+  <title>Datos Interesantes de Psicología</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    :root {
+      --fondo: #0f172a;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(148, 163, 184, 0.2);
+      --texto: #f8fafc;
+      --accento: #82cfff;
+      --sombra: 0 20px 40px rgba(15, 23, 42, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      background-image: url('planeta.jpeg');
-      background-size: cover;
-      background-position: center;
-      font-family: 'Arial', sans-serif;
-      color: rgb(195, 146, 223);
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 52%, #334155 100%);
+      color: var(--texto);
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
+      align-items: center;
+      padding: 20px;
+    }
+
+    main {
+      width: 100%;
+      max-width: 900px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      border-radius: 24px;
+      box-shadow: var(--sombra);
+      padding: 32px;
+    }
+
+    header {
       text-align: center;
+      margin-bottom: 24px;
     }
 
     h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 3rem);
+      letter-spacing: 0.02em;
     }
 
-    p {
-      font-size: 1.5em;
-      margin: 5px 0;
+    p.intro {
+      margin: 16px auto 0;
+      max-width: 720px;
+      line-height: 1.75;
+      color: #cbd5e1;
     }
 
-    .timer {
-      font-size: 2em;
-      font-weight: bold;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      border-radius: 20px;
-      margin-top: 20px;
+    .grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
-    footer {
+    details {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 18px 20px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      overflow: hidden;
+    }
+
+    details[open] {
+      border-color: var(--accento);
+    }
+
+    details:hover {
+      transform: translateY(-2px);
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      position: relative;
+      padding-right: 24px;
+    }
+
+    summary::marker {
+      display: none;
+    }
+
+    summary::after {
+      content: '▼';
       position: absolute;
-      bottom: 10px;
-      font-size: 1em;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 5px 15px;
-      border-radius: 10px;
+      right: 0;
+      top: 0;
+      font-size: 0.95rem;
+      color: var(--accento);
+      transition: transform 0.2s ease;
+    }
+
+    details[open] summary::after {
+      transform: rotate(-180deg);
+    }
+
+    .descripcion {
+      margin-top: 14px;
+      line-height: 1.7;
+      color: #cbd5e1;
+      font-size: 0.98rem;
+    }
+
+    @media (max-width: 560px) {
+      main {
+        padding: 24px 18px;
+      }
+
+      .descripcion {
+        font-size: 0.96rem;
+      }
     }
   </style>
 </head>
 <body>
+  <main>
+    <header>
+      <h1>Datos interesantes de psicología</h1>
+      <p class="intro">Aquí tienes 10 términos clave de psicología con definiciones desplegables. Haz clic en cada palabra para ver su significado.</p>
+    </header>
 
-  <h1>Hola, te amo Cris <3</h1>
-  <p>Sin importar lo lejos que este .⁠｡⁠*⁠♡</p>
-  <p>Siempre te amare .⁠｡⁠*⁠♡</p>
+    <div class="grid">
+      <details>
+        <summary>TDA</summary>
+        <div class="descripcion">Trastorno por déficit de atención. Dificultad para concentrarse, mantener el enfoque y completar tareas, sin hiperactividad intensa.</div>
+      </details>
 
-  <div class="timer" id="contador">
-    Cargando tiempo juntos...
-  </div>
+      <details>
+        <summary>TDAH</summary>
+        <div class="descripcion">Trastorno por déficit de atención e hiperactividad. Combina falta de atención, impulsividad y niveles altos de actividad que afectan la vida diaria.</div>
+      </details>
 
-  <footer>
-    Para siempre juntos 🫶
-  </footer>
+      <details>
+        <summary>TLP</summary>
+        <div class="descripcion">Trastorno límite de la personalidad. Caracterizado por cambios emocionales intensos, miedo al abandono y relaciones interpersonales inestables.</div>
+      </details>
 
-  <script>
-    const inicio = new Date("2024-06-20T12:00:00"); // YYYY-MM-DDTHH:MM:SS
+      <details>
+        <summary>Ansiedad</summary>
+        <div class="descripcion">Respuesta emocional ante el estrés o peligro. Puede incluir preocupación excesiva, tensión corporal y dificultad para relajarse.</div>
+      </details>
 
-    function actualizarContador() {
-      const ahora = new Date();
-      const diferencia = ahora - inicio;
+      <details>
+        <summary>Depresión</summary>
+        <div class="descripcion">Trastorno del estado de ánimo con tristeza profunda, pérdida de interés, fatiga y problemas para dormir o concentrarse.</div>
+      </details>
 
-      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
-      const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
-      const segundos = Math.floor((diferencia / 1000) % 60);
+      <details>
+        <summary>Resiliencia</summary>
+        <div class="descripcion">Capacidad para adaptarse y recuperarse tras situaciones difíciles. Implica aprender de la experiencia y mantener el equilibrio emocional.</div>
+      </details>
 
-      document.getElementById("contador").innerHTML = `
-        Hemos estado juntos por:<br>
-        <span>${dias}</span> días,
-        <span>${horas}</span> horas,
-        <span>${minutos}</span> minutos y
-        <span>${segundos}</span> segundos
-      `;
-    }
+      <details>
+        <summary>Autoestima</summary>
+        <div class="descripcion">Valoración propia de uno mismo. Una autoestima saludable contribuye a la confianza, la motivación y relaciones más equilibradas.</div>
+      </details>
 
-    setInterval(actualizarContador, 1000);
-    actualizarContador();
-  </script>
+      <details>
+        <summary>Mindfulness</summary>
+        <div class="descripcion">Práctica de atención plena en el presente. Ayuda a reducir el estrés y a observar pensamientos y emociones sin juzgarlos.</div>
+      </details>
 
+      <details>
+        <summary>Empatía</summary>
+        <div class="descripcion">Capacidad para entender y sentir lo que otra persona experimenta. Mejora la comunicación y las relaciones personales.</div>
+      </details>
+
+      <details>
+        <summary>Burnout</summary>
+        <div class="descripcion">Estado de agotamiento emocional y físico por estrés prolongado, especialmente en el trabajo. Incluye cansancio, distanciamiento y baja productividad.</div>
+      </details>
+    </div>
+  </main>
 </body>
 </html>
